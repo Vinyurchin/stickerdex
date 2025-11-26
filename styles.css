@@ -1,0 +1,80 @@
+:root{
+  --bg-top: #e9f6ff; /* fondo más claro */
+  --bg-bottom: #d7ecff;
+  --card: #e6fff0; /* tarjeta verde pastel */
+  --card-ink: #0b5b36; /* texto dentro de tarjeta (verde oscuro) */
+  --desc-color: #c0392b; /* color rojizo para la descripción */
+  --accent: #0b6fb3; /* acento azul (mantengo para el header) */
+  --muted:#4b6b7a;
+  --glass: rgba(255,255,255,0.6);
+}
+html,body{height:100%;}
+body{
+  margin:0;
+  font-family:Inter,Segoe UI,Roboto,system-ui,-apple-system,"Helvetica Neue",Arial;
+  background:linear-gradient(180deg, var(--bg-top) 0%, var(--bg-bottom) 100%);
+  color:#072033;
+  -webkit-font-smoothing:antialiased;
+}
+header{padding:28px 12px 20px;text-align:center}
+header h1{margin:0;font-size:34px;color:var(--accent);letter-spacing:0.5px}
+header p{margin:10px 0 0;color:var(--muted);max-width:920px;margin-left:auto;margin-right:auto}
+.grid{
+  padding:20px 6px 80px;
+  max-width:1200px;
+  margin:12px auto 80px;
+}
+.sticker-card{
+  background:var(--card);
+  border:1px solid rgba(6,50,74,0.06);
+  border-radius:14px;
+  padding:12px;
+  text-align:left;
+  box-shadow:0 8px 20px rgba(6,50,74,0.08);
+  display:flex;
+  flex-direction:column;
+  align-items:stretch;
+  min-height:300px;
+  transition:transform .18s ease, box-shadow .18s ease, background .18s;
+  color:var(--card-ink);
+}
+.sticker-card:hover{transform:translateY(-6px);box-shadow:0 22px 48px rgba(6,50,74,0.14);border-color:rgba(11,111,179,0.08)}
+
+/* First card special (dorado) */
+.grid .sticker-card:nth-child(1){
+  background: linear-gradient(180deg,#ffd97a 0%, #ffb84d 100%);
+  color: #3b2f0b;
+  border-color: rgba(255,184,77,0.12);
+}
+.grid .sticker-card:nth-child(1) .sticker-desc,
+.grid .sticker-card:nth-child(1) .sticker-title{color:#3b2f0b}
+.sticker{
+  width:150px;height:150px;margin:8px auto;border-radius:12px;overflow:hidden;display:flex;align-items:center;justify-content:center;background:transparent;align-self:center;border-radius:12px;
+}
+.sticker img{width:100%;height:100%;object-fit:cover;display:block}
+
+/* Title under image */
+.sticker-title{
+  margin-bottom:8px;color:var(--muted);font-weight:700;font-size:13px;text-transform:none;width:100%;text-align:left;padding:0 12px;
+}
+
+/* Editable description block */
+.sticker-desc{
+  margin-top:6px;color:var(--desc-color);font-weight:600;font-size:15px;text-align:left;padding:8px 12px;padding-bottom:14px;width:100%;box-sizing:border-box;border-radius:8px;background:transparent;min-height:56px;overflow:hidden;display:block;
+}
+.sticker-desc[contenteditable="true"]{outline:none;border:1px dashed rgba(6,50,74,0.06);}
+
+.actions{display:none}
+.btn{background:transparent;border:1px solid rgba(255,255,255,0.06);padding:6px 10px;border-radius:8px;color:var(--muted);cursor:pointer}
+.btn.primary{border-color:var(--accent);color:var(--accent)}
+footer{position:fixed;left:0;right:0;bottom:0;background:#66d9ff;padding:12px 16px;text-align:center;color:#012033;border-top:4px solid rgba(0,0,0,0.04);box-shadow:0 -6px 18px rgba(6,50,74,0.08);}
+.small-note{font-size:12px;color:var(--muted)}
+@media (max-width:900px){
+  .sticker-card{min-height:260px}
+  .sticker{width:120px;height:120px}
+}
+@media (max-width:520px){
+  .sticker-card{min-height:220px;padding:10px}
+  .sticker{width:110px;height:110px}
+  .sticker-desc{font-size:14px}
+}
