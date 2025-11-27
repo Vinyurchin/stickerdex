@@ -1,0 +1,8 @@
+services:
+  - type: static
+    name: stickerdex
+    env: static
+    branch: main
+    repo: https://github.com/Vinyurchin/stickerdex
+    buildCommand: ""
+    publishPath: "/"
