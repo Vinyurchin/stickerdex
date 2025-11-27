@@ -48,6 +48,14 @@ header p{margin:10px 0 0;color:var(--muted);max-width:920px;margin-left:auto;mar
 }
 .grid .sticker-card:nth-child(1) .sticker-desc,
 .grid .sticker-card:nth-child(1) .sticker-title{color:#3b2f0b}
+/* Gold card by class (use this to mark specific sticker entries as gold) */
+.sticker-card.gold{
+  background: linear-gradient(180deg,#ffd97a 0%, #ffb84d 100%);
+  color: #3b2f0b;
+  border-color: rgba(255,184,77,0.12);
+}
+.sticker-card.gold .sticker-desc,
+.sticker-card.gold .sticker-title{color:#3b2f0b}
 .sticker{
   width:150px;height:150px;margin:8px auto;border-radius:12px;overflow:hidden;display:flex;align-items:center;justify-content:center;background:transparent;align-self:center;border-radius:12px;
 }

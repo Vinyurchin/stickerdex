@@ -7,7 +7,9 @@ const PRELOADED = [
   {id:1,name:'Sticker poco común, refleja la falta de ideas y de ganas de pensar en una... espera... me recuerda a alguien...',src:'sticker/flojera.jpeg'},
   {id:2,name:'Sticker común... la respuesta predilecta cuando no hay respuesta, o se ha hecho algo indebido... por lo general es al revés ja',src:'sticker/indecision.jpeg'},
   {id:3,name:'Poco común, que mejor forma de responder que disfrutando la situación de una manera tranquila... o igual cuando no se sabe que decir',src:'sticker/juguito.jpeg'},
-  {id:4,name:'Válgame... este sticker refleja muy bien como llega a ser la persona que envía este mismo... se ve esa sonrisa y no solo en el sticker',src:'sticker/maldad.jpeg'},
+  {id:4,name:'Para cuando se dice o la situación es cuestionable... una mirada juzgona siempre se da... a veces incluso cuando no',src:'sticker/juzgon.jpeg'},
+  {id:5,name:'Una mirada cautelosa... algo incrédula, acostumbrado a esto... pero nunca deja de ser divertido',src:'sticker/maldad.jpeg'},
+  {id:6,name:'Un acontecimiento extraño, se dice que hace eones no aparece este espécimen, es raro de ver, tanto aquí como en la realidad!',src:'sticker/ojitos.jpeg'},
 ];
 
 const STORAGE_KEY = 'stickerdex:v1';
@@ -68,6 +70,11 @@ function render(){
   for(let i=0;i<STICKER_COUNT;i++){
     const pre = PRELOADED.find(p=>p.id===i);
     const {card,desc} = makeCard(i, pre);
+
+    // If this preloaded sticker is the 'ojitos' image, mark its card as gold
+    if(pre && pre.src && pre.src.toLowerCase().includes('ojitos')){
+      card.classList.add('gold');
+    }
 
     // decide default description
     if(saved[i] && saved[i].text){
